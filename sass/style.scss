@@ -1,0 +1,27 @@
+* {
+    // border: 1px solid blue;
+}
+
+// search_bar
+.search-bar {
+    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+    input {
+        width: 60%;
+    }
+}
+
+// video_detail
+.details {
+    margin-top: 15px;
+    .title {
+        font-size: 150%;
+        font-weight: bold;
+    }
+}
+
+// video_list_item
+.media-heading {
+    padding-left: 15px;
+}
