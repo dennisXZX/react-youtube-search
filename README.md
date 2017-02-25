@@ -1,4 +1,5 @@
 # Simple Youtube App by React
+A React youtube search app
 
 ## Steps
 - run `npm install` to install the dependencies
