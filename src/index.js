@@ -1,5 +1,5 @@
 // import modules
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 
@@ -23,8 +23,9 @@ class App extends Component {
         this.searchVideo("javascript");
     }
 
-    searchVideo(term) {
-        YTSearch({key: API_KEY, term: term}, (youtubeVideoResults) => {
+    // perform an initial search
+    searchVideo(searchTerm) {
+        YTSearch({key: API_KEY, term: searchTerm}, (youtubeVideoResults) => {
             this.setState({
                 videos : youtubeVideoResults,
                 selectedVideo: youtubeVideoResults[0]
@@ -33,19 +34,22 @@ class App extends Component {
     }
 
     render() {
-
-        const videoSearch = _.debounce((term) => {this.searchVideo(term)}, 300);
-
+        
+        const videoSearch = _.debounce((searchTerm) => {this.searchVideo(searchTerm)}, 300);
+                  
+        {/* pass the videoSearch function to SearchBar component */}
+        {/* pass a callback function to VideoList component as props.onVideoSelect */}
         return (
             <div className="container">
                 <div className="row">
+                    <h1 className="title">Youtube Search App</h1>
                     <SearchBar
                         onSearchTermChange={videoSearch} />
                 </div>
                 <div className="row">
                     <VideoDetail 
                         video={this.state.selectedVideo} />
-                    <VideoList 
+                    <VideoList                     
                         onVideoSelect={(video) => this.setState({selectedVideo: video})}
                         videos={this.state.videos} />
                 </div>
@@ -54,4 +58,4 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.app'));
