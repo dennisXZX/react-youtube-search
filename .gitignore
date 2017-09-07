@@ -5,3 +5,4 @@ style/style.css.map
 test
 .DS_Store
 .sass-cache/
+.idea/
