@@ -1,26 +1,37 @@
+const path = require('path');
+// extract CSS code into a separate file
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// create a Webpack config file
 module.exports = {
   entry: [
     './src/index.js'
   ],
-  output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
+	output: {
+		// the output will be generated in the build folder of the current directory
+		path: path.resolve(__dirname, 'build'),
+		filename: 'bundle.js',
+		publicPath: 'build/'
+	},
   module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
-      }
-    }]
+    rules: [
+	    {
+	    	test: /\.js$/,
+		    // handle js files, babel-loader will look at the .babelrc for Babel config on how to deal with js files
+		    use: 'babel-loader'
+	    },
+	    {
+	    	test: /\.css$/,
+		    // handle css code, extract it to a separate file instead of injecting all CSS into bundle.js
+		    // loaders will be applied from right to left
+		    use: ExtractTextPlugin.extract({
+			    fallback: 'style-loader',
+			    use: 'css-loader'
+		    })
+	    }
+    ]
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './'
-  }
+	plugins: [
+		new ExtractTextPlugin('styles.css'),
+	]
 };
