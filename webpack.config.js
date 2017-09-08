@@ -5,6 +5,9 @@ const config = {
 	entry: {
     main: './src/index.js'
   },
+	devServer: {
+		contentBase: './'
+	},
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build'),
