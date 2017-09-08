@@ -22,7 +22,9 @@
     "webpack": "^3.5.6"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "lodash": "^4.17.4",
+    "npm": "^5.4.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "youtube-api-search": "0.0.5"

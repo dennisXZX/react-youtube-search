@@ -11,6 +11,7 @@ import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyAyUARPmplwiV8JtcP_EgP8gCIO1dWtM3E';
 
 // import style
+import 'bootstrap/dist/css/bootstrap.css';
 import './stylesheets/main.scss';
 
 class App extends Component {
