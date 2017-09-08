@@ -10,6 +10,9 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyAyUARPmplwiV8JtcP_EgP8gCIO1dWtM3E';
 
+// import style
+import './stylesheets/main.scss';
+
 class App extends Component {
     constructor(props) {
         super(props);

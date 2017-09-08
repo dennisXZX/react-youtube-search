@@ -1,5 +1,4 @@
 const path = require('path');
-// extract CSS code into a separate file
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // create a Webpack config file
@@ -20,19 +19,22 @@ const config = {
 		    // handle js files, babel-loader will look at the .babelrc for Babel config on how to deal with js files
 		    use: 'babel-loader'
 			},
-	    {
-	    	test: /\.css$/,
-		    // handle css code, extract it to a separate file instead of injecting all CSS into bundle.js
-		    // loaders will be applied from right to left
-		    use: ExtractTextPlugin.extract({
-			    fallback: 'style-loader',
-			    use: 'css-loader'
-		    })
-	    }
+			{
+				test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+					use: [{
+							loader: "css-loader"
+					}, {
+							loader: "sass-loader"
+					}],
+					// use style-loader in development
+					fallback: "style-loader"
+				})
+			}
     ]
   },
 	plugins: [
-		new ExtractTextPlugin('styles.css')
+		new ExtractTextPlugin("styles.css")
 	]
 };
 
