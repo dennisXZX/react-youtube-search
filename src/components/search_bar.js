@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 // class component
 class SearchBar extends Component {
@@ -18,9 +18,9 @@ class SearchBar extends Component {
         return (
             <div className="search-bar">
                 <input 
-                value={this.state.term}
-                onChange={(event) => this.onInputChange(event.target.value)}
-                placeholder="Type your search term here" />
+	                value={this.state.term}
+	                onChange={(event) => this.onInputChange(event.target.value)}
+	                placeholder="Type your search term here" />
             </div>
         );
     }
