@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 
+// import keys
+import KEYS from './config/keys';
+
 // import custom-made components
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-const API_KEY = 'AIzaSyAyUARPmplwiV8JtcP_EgP8gCIO1dWtM3E';
+const API_KEY = KEYS.youtubeKey;
 
 // import style
 import 'bootstrap/dist/css/bootstrap.css';

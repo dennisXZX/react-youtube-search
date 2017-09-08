@@ -1,9 +1,5 @@
 /node_modules
-bundle.js
-npm-debug.log
-style/style.css.map
-test
-.DS_Store
-.sass-cache/
-.idea/
 /build
+/src/config/keys.js
+.DS_Store
+.idea/
