@@ -12,8 +12,8 @@ import YTSearch from 'youtube-api-search';
 
 // import custom-made components
 import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+import VideoList from './components/video_list';
 
 // import style
 import 'bootstrap/dist/css/bootstrap.css';
@@ -33,7 +33,7 @@ class App extends Component {
     }
 
     // perform a Youtube search
-		// the callback function receive the an object from Youtube API
+		// the callback function receives the an object from Youtube API
     searchVideo(searchTerm) {
         YTSearch({key: API_KEY, term: searchTerm}, (youtubeVideoResults) => {
             this.setState({
@@ -50,9 +50,9 @@ class App extends Component {
         {/* pass the videoSearch function to SearchBar component */}
         {/* pass a callback function to VideoList component as props.onVideoSelect */}
         return (
-            <div className="container text-center">
+            <div className="container">
                 <div className="row">
-                    <h1 className="title">Youtube Search App</h1>
+                    <h1 className="title text-center">Youtube Search App</h1>
                     <SearchBar
                         onSearchTermChange={videoSearch} />
                 </div>
