@@ -36,9 +36,15 @@ class App extends Component {
 		// the callback function receives the an object from Youtube API
     searchVideo(searchTerm) {
         YTSearch({key: API_KEY, term: searchTerm}, (youtubeVideoResults) => {
+
+        	  // get the first result
+	          const videoForDetailPane = youtubeVideoResults[0];
+	          // get the results for video list
+	          const videosForList = youtubeVideoResults.slice(1, 4);
+
             this.setState({
-                videos : youtubeVideoResults,
-                selectedVideo: youtubeVideoResults[0]
+                videos : videosForList,
+                selectedVideo: videoForDetailPane
             });
         });         
     }
